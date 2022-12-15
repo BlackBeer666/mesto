@@ -10,6 +10,7 @@
 @media screen and (max-width: 999px) {
   .cards {
     grid-template-columns: repeat(2, 282px);
+    justify-content: space-evenly;
   }
 }
 @media screen and (max-width: 580px) {

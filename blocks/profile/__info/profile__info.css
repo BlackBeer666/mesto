@@ -2,13 +2,9 @@
   display: flex;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 999px) {
   .profile__info {
-    max-width: 282px;
-    max-height: 56px;
-    padding-left: 65px;
-    padding-right: 38px;
-
+    max-height: 54px;
   }
   
 }

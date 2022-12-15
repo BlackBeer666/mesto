@@ -1,0 +1,5 @@
+.profile__buttonstyle {
+  background-color: #000;
+  cursor: pointer;
+  transition: opacity .2s linear;
+}

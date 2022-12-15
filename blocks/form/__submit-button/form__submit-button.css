@@ -1,15 +1,12 @@
 .form__submit-button {
-  background: black;
-  color: white;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   border-radius: 2px;
   min-height: 50px;
-  cursor: pointer;
-  border: none;
   margin-top: 48px;
-  transition: opacity .2s linear;
+  color: #fff;
+  border: none;
 }
 
 .form__submit-button:hover {

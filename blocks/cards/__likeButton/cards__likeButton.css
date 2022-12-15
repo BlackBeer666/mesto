@@ -1,7 +1,7 @@
-.cards__likeButton {
+.cards__likebutton {
   background-image: url(../../../images/addLike.svg);
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: transparent;
   min-width: 22px;
   min-height: 19px;
   padding: 0;
@@ -10,7 +10,7 @@
   transition: opacity .2s linear;
 }
 
-.cards__likeButton:hover {
+.cards__likebutton:hover {
   opacity: .5;
   transform: scale(1.3);
 }
