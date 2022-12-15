@@ -10,8 +10,8 @@ const professionInput = document.querySelector('.form__field_type_profession');
 // Функция открытия попапа и слушатель клика
 function popupOpened() {
   popup.classList.add('popup_opened');
-  nameInput.value = ProfileName.textContent; // Забираем данные с профиля
-  professionInput.value = ProfileProfession.textContent // Забираем данные с профиля
+  nameInput.value = profileName.textContent; // Забираем данные с профиля
+  professionInput.value = profileProfession.textContent // Забираем данные с профиля
 
 }
 editButton.addEventListener('click', popupOpened);
