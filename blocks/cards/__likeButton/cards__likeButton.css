@@ -1,5 +1,5 @@
 .cards__likeButton {
-  background-image: url(./images/addLike.svg);
+  background-image: url(../../../images/addLike.svg);
   background-repeat: no-repeat;
   background-color: white;
   min-width: 22px;
