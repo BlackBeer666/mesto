@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+  <link rel="stylesheet" href="./pages/index.css">
+  <script src="./scripts/index.js" defer></script>
+</head>
+
+<body class="page">
+  <header class="header">
+    <img src="/images/Vector.svg" alt="Логотип" class="header__logo">
+  </header>
+  <main>
+    <section class="profile">
+      <img src="/images/profile-image.jpg" alt="Аватар" class="profile__photo">
+      <div class="profile__info">
+        <div class="profile__text">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__profession">Исследователь океана</p>
+        </div>
+        <button class="profile__editButton" type="button" aria-label="Редактировать профиль"></button>
+      </div>
+      <button class="profile__addButton" type="button"></button>
+    </section>
+    <div class="wrapper">
+    <section class="cards" aria-label="Фото-карточки">
+      <article class="cards__element">
+        <img src="/images/turkey.jpg" alt="Улицы Турции" class="cards__photo">
+        <div class="cards__info">
+          <h2 class="cards__text">Турция</h2>
+          <button class="cards__likeButton"></button>
+        </div>
+      </article>
+
+      <article class="cards__element">
+        <img src="/images/tallin.jpg" alt="Улицы города Таллин" class="cards__photo">
+        <div class="cards__info">
+          <h2 class="cards__text">Таллин</h2>
+          <button class="cards__likeButton cards__likeButton_active"></button>
+        </div>
+      </article>
+
+      <article class="cards__element">
+        <img src="/images/kipr.jpg" alt="Улицы города Кипр" class="cards__photo">
+        <div class="cards__info">
+          <h2 class="cards__text">Кипр</h2>
+          <button class="cards__likeButton"></button>
+        </div>
+      </article>
+
+      <article class="cards__element">
+        <img src="/images/swe.jpg" alt="Улицы Швеции" class="cards__photo">
+        <div class="cards__info">
+          <h2 class="cards__text">Швеция</h2>
+          <button class="cards__likeButton"></button>
+        </div>
+      </article>
+
+      <article class="cards__element">
+        <img src="/images/ispanion.jpg" alt="Улицы Испании" class="cards__photo">
+        <div class="cards__info">
+          <h2 class="cards__text">Испания</h2>
+          <button class="cards__likeButton"></button>
+        </div>
+      </article>
+
+      <article class="cards__element">
+        <img src="/images/karachaevsk.jpg" alt="Постройка в виде древней башни на фоне гор" class="cards__photo">
+        <div class="cards__info">
+          <h2 class="cards__text">Карачаево-Черкесская Республика</h2>
+          <button class="cards__likeButton"></button>
+        </div>
+      </article>
+    </section>
+  </div>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
+  </footer>
+
+  <div class="popup">
+  <div class="popup__content">
+    <h2 class="popup__title">Редактировать профиль</h2>
+    <form class="form" name="info">
+      <fieldset class="form__fieldset">
+        <input type="text" class="form__field form__field_type_name" placeholder="Имя" name="name" value="Жак-Ив Кусто">
+        <input type="text" class="form__field form__field_type_profession" placeholder="О себе" name="profession" value="Исследователь океана">
+      </fieldset>
+      <button type="submit" aria-label="Сохранить и отправить форму" class="form__submit-button">Сохранить</button>
+    </form>
+    <button type="button" class="popup__close-button" aria-label="Закрыть всплывающее окно"></button>
+  </div>
+  </div>
+</body>
+</html>

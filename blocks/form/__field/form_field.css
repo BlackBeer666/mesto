@@ -1,0 +1,16 @@
+.form__field {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+  padding: 0;
+  padding-bottom: 9px;
+  border: none;
+  margin: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.form__field:last-of-type {
+  margin-bottom: 0;
+}

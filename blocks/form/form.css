@@ -1,0 +1,14 @@
+.form {
+  max-width: calc(100% - 72px);
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+      max-width: calc(100% - 44px);
+  }
+} 
