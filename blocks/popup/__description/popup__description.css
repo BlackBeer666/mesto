@@ -1,0 +1,9 @@
+.popup__description {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 10px;
+  position: absolute;
+  overflow-wrap: anywhere; /* На случай если прийдет пользователь с текстом в 999 символов */
+ }

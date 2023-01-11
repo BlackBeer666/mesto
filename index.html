@@ -25,73 +25,70 @@
       </div>
       <button class="profile__addbutton buttonstyle" type="button"></button>
     </section>
+
+
     <section class="cards" aria-label="Фото-карточки">
-      <article class="cards__element">
-        <img src="./images/turkey.jpg" alt="Улицы Турции" class="cards__photo">
-        <div class="cards__info">
-          <h2 class="cards__text">Турция</h2>
-          <button class="cards__likebutton" type="button"></button>
-        </div>
-      </article>
 
-      <article class="cards__element">
-        <img src="./images/tallin.jpg" alt="Улицы города Таллин" class="cards__photo">
-        <div class="cards__info">
-          <h2 class="cards__text">Таллин</h2>
-          <button class="cards__likebutton cards__likebutton_active"></button>
-        </div>
-      </article>
+      <template class="cards__template">
+        <article class="cards__element">
+          <img src="" alt="" class="cards__photo">
+          <button class="cards__trashbutton" type="button"></button>
+          <div class="cards__info">
+            <h2 class="cards__text"></h2>
+            <button class="cards__likebutton" type="button"></button>
+          </div>
+        </article>
+      </template>
 
-      <article class="cards__element">
-        <img src="./images/kipr.jpg" alt="Улицы города Кипр" class="cards__photo">
-        <div class="cards__info">
-          <h2 class="cards__text">Кипр</h2>
-          <button class="cards__likebutton" type="button"></button>
-        </div>
-      </article>
 
-      <article class="cards__element">
-        <img src="./images/swe.jpg" alt="Улицы Швеции" class="cards__photo">
-        <div class="cards__info">
-          <h2 class="cards__text">Швеция</h2>
-          <button class="cards__likebutton" type="button"></button>
-        </div>
-      </article>
-
-      <article class="cards__element">
-        <img src="./images/ispanion.jpg" alt="Улицы Испании" class="cards__photo">
-        <div class="cards__info">
-          <h2 class="cards__text">Испания</h2>
-          <button class="cards__likebutton" type="button"></button>
-        </div>
-      </article>
-
-      <article class="cards__element">
-        <img src="./images/karachaevsk.jpg" alt="Постройка в виде древней башни на фоне гор" class="cards__photo">
-        <div class="cards__info">
-          <h2 class="cards__text">Карачаево-Черкесская Республика</h2>
-          <button class="cards__likebutton" type="button"></button>
-        </div>
-      </article>
     </section>
+
+
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
-  <div class="popup__content">
-    <h2 class="popup__title">Редактировать профиль</h2>
-    <form class="form" name="info">
-      <fieldset class="form__fieldset">
-        <input type="text" class="form__field form__field_type_name" placeholder="Имя" name="name" value="Жак-Ив Кусто">
-        <input type="text" class="form__field form__field_type_profession" placeholder="О себе" name="profession" value="Исследователь океана">
-      </fieldset>
-      <button type="submit" aria-label="Сохранить и отправить форму" class="form__submitbutton buttonstyle">Сохранить</button>
-    </form>
-    <button type="button" class="popup__closebutton" aria-label="Закрыть всплывающее окно"></button>
+  <div class="popup popup_bg_light" id="popup-profile">
+    <div class="popup__content">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="form" name="info" id="form-profile">
+        <fieldset class="form__fieldset">
+          <input type="text" class="form__field form__field_type_name" placeholder="Имя" value="Жак-Ив Кусто">
+          <input type="text" class="form__field form__field_type_profession" placeholder="О себе" value="Исследователь океана">
+        </fieldset>
+        <button type="submit" aria-label="Сохранить и отправить форму"
+          class="form__submitbutton buttonstyle">Сохранить</button>
+      </form>
+      <button type="button" class="popup__closebutton" aria-label="Закрыть всплывающее окно"></button>
+    </div>
   </div>
+
+  <div class="popup popup_bg_light" id="popup-cards">
+    <div class="popup__content">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="form" name="info" id="form-cards">
+        <fieldset class="form__fieldset">
+          <input type="text" class="form__field form__field_type_name" id="card-name" placeholder="Название"
+            value="">
+          <input type="text" class="form__field form__field_type_profession" id="card-url" placeholder="Ссылка на картинку" value="">
+        </fieldset>
+        <button type="submit" aria-label="Сохранить и отправить форму"
+          class="form__submitbutton buttonstyle">Сохранить</button>
+      </form>
+      <button type="button" class="popup__closebutton" id="close-cards" aria-label="Закрыть всплывающее окно"></button>
+    </div>
   </div>
+
+  <div class="popup popup_bg_dark" id="popup-image">
+    <div class="popup__image-container">
+      <img src="#" alt="#" class="popup__image">
+      <button type="button" class="popup__closebutton" id="close-photo" aria-label="Закрыть всплывающее окно"></button>
+      <p class="popup__description"></p>
+    </div>
+    </div>
+
   <script src="./scripts/index.js"></script>
 </body>
+
 </html>
