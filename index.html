@@ -49,14 +49,12 @@
     <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup popup_bg_light" id="popup-profile">
+  <div class="popup" id="popup-profile">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form" name="info" id="form-profile">
-        <fieldset class="form__fieldset">
-          <input type="text" class="form__field form__field_type_name" placeholder="Имя" value="Жак-Ив Кусто">
-          <input type="text" class="form__field form__field_type_profession" placeholder="О себе" value="Исследователь океана">
-        </fieldset>
+          <input type="text" class="form__field form__field_type_name" placeholder="Имя">
+          <input type="text" class="form__field form__field_type_profession" placeholder="О себе">
         <button type="submit" aria-label="Сохранить и отправить форму"
           class="form__submitbutton buttonstyle">Сохранить</button>
       </form>
@@ -64,15 +62,13 @@
     </div>
   </div>
 
-  <div class="popup popup_bg_light" id="popup-cards">
+  <div class="popup" id="popup-cards">
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
       <form class="form" name="info" id="form-cards">
-        <fieldset class="form__fieldset">
           <input type="text" class="form__field form__field_type_name" id="card-name" placeholder="Название"
             value="">
           <input type="text" class="form__field form__field_type_profession" id="card-url" placeholder="Ссылка на картинку" value="">
-        </fieldset>
         <button type="submit" aria-label="Сохранить и отправить форму"
           class="form__submitbutton buttonstyle">Сохранить</button>
       </form>
@@ -87,7 +83,7 @@
       <p class="popup__description"></p>
     </div>
     </div>
-
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 

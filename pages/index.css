@@ -28,12 +28,10 @@
 @import url("../blocks/popup/__closebutton/popup__closebutton.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/popup/_bg/popup_bg_dark.css");
-@import url("../blocks/popup/_bg/popup_bg_light.css");
 @import url("../blocks/popup/__image/popup__image.css");
 @import url("../blocks/popup/__description/popup__description.css");
 @import url("../blocks/popup/__image-container/popup__image-container.css");
 @import url("../blocks/form/form.css");
-@import url("../blocks/form/__fieldset/form__fieldset.css");
 @import url("../blocks/form/__field/form_field.css");
 @import url("../blocks/form/__submitbutton/form__submitbutton.css");
 @import url("../blocks/");
