@@ -1,5 +1,5 @@
 const editButton = document.querySelector('.profile__editbutton');
-const closeButton = document.querySelectorAll('.popup__closebutton');
+const closeButtons = document.querySelectorAll('.popup__closebutton');
 const popupProfile = document.querySelector('#popup-profile');
 const profileName = document.querySelector('.profile__name'); 
 const profileProfession = document.querySelector('.profile__profession'); 
@@ -24,7 +24,7 @@ function closePopup(popupProfile) {
   popupProfile.classList.remove('popup_opened');
 }
 // Универсальный слушатель клика закрытие попапа 
-closeButton.forEach(btn => {    //forEach перебираем все элементы с кнопкой
+closeButtons.forEach(btn => {    //forEach перебираем все элементы с кнопкой
   const popup = btn.closest('.popup');  // ко всем родителям .popup используем функцию на закрытие
   btn.addEventListener('click', () => closePopup(popup)); 
 }) 
@@ -49,10 +49,8 @@ const popupCards = document.querySelector('#popup-cards');
 const countryInput = formCard.querySelector('#card-name');
 const urlInput = formCard.querySelector('#card-url');
 const buttonOpenPopup = document.querySelector('.profile__addbutton'); 
-const closePopupCards = document.querySelector('#close-cards');
 const popupPhoto = document.querySelector('#popup-image');
 const zoomPhoto = document.querySelector('.popup__image');
-const closePopupPhoto = document.querySelector('#close-photo');
 const description = document.querySelector('.popup__description');
 
 
