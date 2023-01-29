@@ -7,6 +7,7 @@
   margin-top: 48px;
   color: #fff;
   border: none;
+  background-color: #000;
 }
 
 .form__submitbutton:hover {

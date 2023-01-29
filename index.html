@@ -52,9 +52,15 @@
   <div class="popup" id="popup-profile">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form" name="info" id="form-profile">
-          <input type="text" class="form__field form__field_type_name" placeholder="Имя">
-          <input type="text" class="form__field form__field_type_profession" placeholder="О себе">
+      <form class="form" name="info" id="form-profile" novalidate>
+          <input type="text" class="form__field form__field_type_name" placeholder="Имя" required minlength="2" maxlength="40" id="name-input" name="name">
+
+          <span class="form__field-error name-input-error"></span>
+
+          <input type="text" class="form__field form__field_type_profession" placeholder="О себе" required minlength="2" maxlength="200" id="proff-input" name="prof">
+
+          <span class="form__field-error prof-input-error"></span>
+
         <button type="submit" aria-label="Сохранить и отправить форму"
           class="form__submitbutton buttonstyle">Сохранить</button>
       </form>
@@ -65,10 +71,17 @@
   <div class="popup" id="popup-cards">
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
-      <form class="form" name="info" id="form-cards">
+      <form class="form" name="info" id="form-cards" novalidate>
           <input type="text" class="form__field form__field_type_name" id="card-name" placeholder="Название"
-            value="">
-          <input type="text" class="form__field form__field_type_profession" id="card-url" placeholder="Ссылка на картинку" value="">
+            value="" required minlength="2" maxlength="30" name="name-card">
+
+            <span class="form__field-error card-name-error"></span>
+
+          <input type="url" class="form__field form__field_type_profession" id="card-url" placeholder="Ссылка на картинку" 
+          value="" required>
+
+          <span class="form__field-error card-url-error"></span>
+
         <button type="submit" aria-label="Сохранить и отправить форму"
           class="form__submitbutton buttonstyle">Сохранить</button>
       </form>
@@ -85,6 +98,7 @@
     </div>
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

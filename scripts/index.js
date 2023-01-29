@@ -7,9 +7,39 @@ const formProfile = document.querySelector('#form-profile');
 const nameInput = document.querySelector('.form__field_type_name');
 const professionInput = document.querySelector('.form__field_type_profession');
 
-// Функция открытия попапа
-function openPopup(popupProfile) {
-  popupProfile.classList.add('popup_opened');
+//Закрытие нажатием кнпоки ESC 
+
+const closeEscape = (evt) => {
+  evt.preventDefault();
+  if(evt.key === "Escape") {
+    const active = document.querySelector('.popup_opened');
+    closePopup(active);
+  }
+}
+
+//Закрытие по оверлею 
+
+const closeOverlay = Array.from(document.querySelectorAll('.popup'));
+  closeOverlay.forEach((popupItem) => {
+    popupItem.addEventListener('click', function (evt) {
+      if(evt.target.classList.contains('popup')) {
+      closePopup(popupItem);
+    };
+  });
+  });
+
+
+
+// Функция открытия попапа(универсальный)
+function openPopup(add) {
+  add.classList.add('popup_opened');
+  document.addEventListener("keyup", closeEscape);
+
+}
+// Функция закрытия попапа(универсальный)
+function closePopup(close) {
+  close.classList.remove('popup_opened');
+  document.removeEventListener("keyup", closeEscape);
 }
 
 //Слушатель клика на открытие и взять данные с сайта
@@ -19,10 +49,7 @@ editButton.addEventListener('click', () => {
   professionInput.value = profileProfession.textContent 
 });
 
-// Функция закрытия попапа 
-function closePopup(popupProfile) {
-  popupProfile.classList.remove('popup_opened');
-}
+
 // Универсальный слушатель клика закрытие попапа 
 closeButtons.forEach(btn => {    //forEach перебираем все элементы с кнопкой
   const popup = btn.closest('.popup');  // ко всем родителям .popup используем функцию на закрытие

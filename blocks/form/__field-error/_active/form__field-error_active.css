@@ -1,0 +1,5 @@
+/* Стили для активной ошибки */
+
+.form__field-error_active {
+  opacity: 1;
+}
