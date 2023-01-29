@@ -10,6 +10,7 @@ const objValidation = {
 // Добавить ошибку валидации
 const showInputError = (formElement, inputElement, errorMessage, objValidation) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  сonsole.log(errorElement);
   inputElement.classList.add(objValidation.inputErrorClass);
   errorElement.classList.add(objValidation.errorClass);
   errorElement.textContent = errorMessage;
@@ -34,21 +35,29 @@ const checkInputValidity = (formElement, inputElement, objValidation) => {
   }
 }
 
+//Есть ли здесь хотя бы одно поле, которое не прошло валидацию?
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
 //Функция которая отвечат за блокировку кнопки
 const toggleButtonState = (inputList, buttonElement, objValidation) => {
   if(hasInvalidInput(inputList)) {
     buttonElement.classList.add(objValidation.inactiveButtonClass);
-    buttonElement.disabled = true;
+    buttonElement.setAttribute('disabled', 'disabled');
 
   } else {
     buttonElement.classList.remove(objValidation.inactiveButtonClass);
-    buttonElement.disabled = false;
+    buttonElement.reoveAttribute('disabled');
   };
 };
 
 const setEventListeners = (formElement, objValidation) => {
   const inputList = Array.from(document.querySelectorAll(objValidation.inputSelector));
   const buttonElement = formElement.querySelector(objValidation.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, objValidation);
   inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         checkInputValidity(formElement, inputElement, objValidation);
@@ -69,12 +78,6 @@ const enableValidation = (objValidation) => {
 
 enableValidation(objValidation);
 
-//Есть ли здесь хотя бы одно поле, которое не прошло валидацию?
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
 
 
 
