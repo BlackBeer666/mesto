@@ -10,7 +10,6 @@ const objValidation = {
 // Добавить ошибку валидации
 const showInputError = (formElement, inputElement, errorMessage, objValidation) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  сonsole.log(errorElement);
   inputElement.classList.add(objValidation.inputErrorClass);
   errorElement.classList.add(objValidation.errorClass);
   errorElement.textContent = errorMessage;
@@ -38,7 +37,7 @@ const checkInputValidity = (formElement, inputElement, objValidation) => {
 //Есть ли здесь хотя бы одно поле, которое не прошло валидацию?
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
+    return !inputElement.validity.valid
   });
 };
 
@@ -64,12 +63,12 @@ const setEventListeners = (formElement, objValidation) => {
         toggleButtonState(inputList, buttonElement, objValidation);
      });
   });
-}
+};
 
 const enableValidation = (objValidation) => {
   const formList = Array.from(document.querySelectorAll(objValidation.formSelector));
     formList.forEach((formElement) => {
-      formElement.addEventListener('submit', (evt) => {
+      formElement.addEventListener('submit', function (evt) {
         evt.preventDefault();
       });
       setEventListeners(formElement, objValidation);
