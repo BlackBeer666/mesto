@@ -49,14 +49,21 @@ const toggleButtonState = (inputList, buttonElement, objValidation) => {
 
   } else {
     buttonElement.classList.remove(objValidation.inactiveButtonClass);
-    buttonElement.reoveAttribute('disabled');
+    buttonElement.removeAttribute('disabled');
   };
 };
 
+const disableButton = (formElement, objValidation) => {
+  const disable = formElement.querySelector(objValidation.submitButtonSelector);
+    disable.classList.add(objValidation.inactiveButtonClass);
+    disable.setAttribute('disabled', 'disabled');
+}
+
 const setEventListeners = (formElement, objValidation) => {
-  const inputList = Array.from(document.querySelectorAll(objValidation.inputSelector));
+  const inputList = Array.from(formElement.querySelectorAll(objValidation.inputSelector));
   const buttonElement = formElement.querySelector(objValidation.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, objValidation);
+  disableButton(formElement, objValidation);
   inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         checkInputValidity(formElement, inputElement, objValidation);
@@ -74,6 +81,7 @@ const enableValidation = (objValidation) => {
       setEventListeners(formElement, objValidation);
     });
 }
+
 
 enableValidation(objValidation);
 
