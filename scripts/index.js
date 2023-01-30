@@ -6,14 +6,26 @@ const profileProfession = document.querySelector('.profile__profession');
 const formProfile = document.querySelector('#form-profile');
 const nameInput = document.querySelector('.form__field_type_name');
 const professionInput = document.querySelector('.form__field_type_profession');
+// 5 cпринт 
+const cardTemplate = document.querySelector('.cards__template').content
+const cardElement = document.querySelector('.cards__element');
+const cardsContainer = document.querySelector('.cards') // выбираем секцию Cards, где будут вставлять картинки
+const formCard = document.querySelector('#form-cards');
+const popupCards = document.querySelector('#popup-cards');
+const countryInput = formCard.querySelector('#card-name');
+const urlInput = formCard.querySelector('#card-url');
+const buttonOpenPopup = document.querySelector('.profile__addbutton'); 
+const popupPhoto = document.querySelector('#popup-image');
+const zoomPhoto = document.querySelector('.popup__image');
+const description = document.querySelector('.popup__description');
 
 //Закрытие нажатием кнпоки ESC 
 
 const closeEscape = (evt) => {
   evt.preventDefault();
   if(evt.key === "Escape") {
-    const active = document.querySelector('.popup_opened');
-    closePopup(active);
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
   }
 }
 
@@ -28,17 +40,15 @@ const closeOverlay = Array.from(document.querySelectorAll('.popup'));
   });
   });
 
-
-
 // Функция открытия попапа(универсальный)
-function openPopup(add) {
-  add.classList.add('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
   document.addEventListener("keyup", closeEscape);
 
 }
 // Функция закрытия попапа(универсальный)
-function closePopup(close) {
-  close.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener("keyup", closeEscape);
 }
 
@@ -57,28 +67,14 @@ closeButtons.forEach(btn => {    //forEach перебираем все элем�
 }) 
 
 // Отправка данные с профиля на сайт 
-function handleFormSubmit(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileProfession.textContent = professionInput.value;
   closePopup(popupProfile);
 }
 
-formProfile.addEventListener('submit', handleFormSubmit);
-
-
-// 5 cпринт 
-const cardTemplate = document.querySelector('.cards__template').content
-const cardElement = document.querySelector('.cards__element');
-const cardsContainer = document.querySelector('.cards') // выбираем секцию Cards, где будут вставлять картинки
-const formCard = document.querySelector('#form-cards');
-const popupCards = document.querySelector('#popup-cards');
-const countryInput = formCard.querySelector('#card-name');
-const urlInput = formCard.querySelector('#card-url');
-const buttonOpenPopup = document.querySelector('.profile__addbutton'); 
-const popupPhoto = document.querySelector('#popup-image');
-const zoomPhoto = document.querySelector('.popup__image');
-const description = document.querySelector('.popup__description');
+formProfile.addEventListener('submit', submitEditProfileForm);
 
 
 buttonOpenPopup.addEventListener('click', () => {

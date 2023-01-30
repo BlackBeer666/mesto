@@ -1,4 +1,4 @@
-const objValidation = {
+const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__field',
   submitButtonSelector: '.form__submitbutton',
@@ -8,29 +8,29 @@ const objValidation = {
 };
 
 // Добавить ошибку валидации
-const showInputError = (formElement, inputElement, errorMessage, objValidation) => {
+const showInputError = (formElement, inputElement, errorMessage, validationConfig) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(objValidation.inputErrorClass);
-  errorElement.classList.add(objValidation.errorClass);
+  inputElement.classList.add(validationConfig.inputErrorClass);
+  errorElement.classList.add(validationConfig.errorClass);
   errorElement.textContent = errorMessage;
 };
 
 // Убрать ошибку валидации
 
-const hideInputError = (formElement, inputElement, objValidation) => {
+const hideInputError = (formElement, inputElement, validationConfig) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(objValidation.inputErrorClass);
-  errorElement.classList.remove(objValidation.errorClass);
+  inputElement.classList.remove(validationConfig.inputErrorClass);
+  errorElement.classList.remove(validationConfig.errorClass);
   errorElement.textContent = '';
 };
 
 // Функция проверки валидности инпута 
 
-const checkInputValidity = (formElement, inputElement, objValidation) => {
+const checkInputValidity = (formElement, inputElement, validationConfig) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage, objValidation);
+    showInputError(formElement, inputElement, inputElement.validationMessage, validationConfig);
   } else {
-    hideInputError(formElement, inputElement, objValidation);
+    hideInputError(formElement, inputElement, validationConfig);
   }
 }
 
@@ -42,50 +42,51 @@ const hasInvalidInput = (inputList) => {
 };
 
 //Функция которая отвечат за блокировку кнопки
-const toggleButtonState = (inputList, buttonElement, objValidation) => {
+const toggleButtonState = (inputList, buttonElement, validationConfig) => {
   if(hasInvalidInput(inputList)) {
-    buttonElement.classList.add(objValidation.inactiveButtonClass);
+    buttonElement.classList.add(validationConfig.inactiveButtonClass);
     buttonElement.setAttribute('disabled', 'disabled');
 
   } else {
-    buttonElement.classList.remove(objValidation.inactiveButtonClass);
+    buttonElement.classList.remove(validationConfig.inactiveButtonClass);
     buttonElement.removeAttribute('disabled');
   };
 };
 
-// Отключить кнопку при открытии формы
-const disableButton = (formElement, objValidation) => {
-  const disable = formElement.querySelector(objValidation.submitButtonSelector);
-    disable.classList.add(objValidation.inactiveButtonClass);
-    disable.setAttribute('disabled', 'disabled');
-}
 
-
-const setEventListeners = (formElement, objValidation) => {
-  const inputList = Array.from(formElement.querySelectorAll(objValidation.inputSelector));
-  const buttonElement = formElement.querySelector(objValidation.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, objValidation);
-  disableButton(formElement, objValidation);
+// Переберем все формы на страницы и каждой форме вызоваем setEventListeners! На вход дадим элемент(инпут) формы
+const setEventListeners = (formElement, validationConfig) => {
+  const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+  const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, validationConfig);
   inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
-        checkInputValidity(formElement, inputElement, objValidation);
-        toggleButtonState(inputList, buttonElement, objValidation);
+        checkInputValidity(formElement, inputElement, validationConfig);
+        toggleButtonState(inputList, buttonElement, validationConfig);
      });
   });
 };
 
-const enableValidation = (objValidation) => {
-  const formList = Array.from(document.querySelectorAll(objValidation.formSelector));
+// Отключить кнопку при открытии формы
+const disableButton = (formElement, validationConfig) => {
+  const disable = formElement.querySelector(validationConfig.submitButtonSelector);
+    disable.classList.add(validationConfig.inactiveButtonClass);
+    disable.setAttribute('disabled', 'disabled');
+}
+
+const enableValidation = (validationConfig) => {
+  const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', function (evt) {
         evt.preventDefault();
+        disableButton(formElement, validationConfig);
       });
-      setEventListeners(formElement, objValidation);
+      setEventListeners(formElement, validationConfig);
     });
 }
 
 
-enableValidation(objValidation);
+enableValidation(validationConfig);
 
 
 

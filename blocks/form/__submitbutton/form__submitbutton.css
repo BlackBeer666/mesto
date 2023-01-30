@@ -4,10 +4,10 @@
   line-height: 22px;
   border-radius: 2px;
   min-height: 50px;
-  margin-top: 48px;
   color: #fff;
   border: none;
   background-color: #000;
+  margin-top: 18px;
 }
 
 .form__submitbutton:hover {
