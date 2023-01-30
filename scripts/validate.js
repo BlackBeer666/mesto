@@ -53,11 +53,13 @@ const toggleButtonState = (inputList, buttonElement, objValidation) => {
   };
 };
 
+// Отключить кнопку при открытии формы
 const disableButton = (formElement, objValidation) => {
   const disable = formElement.querySelector(objValidation.submitButtonSelector);
     disable.classList.add(objValidation.inactiveButtonClass);
     disable.setAttribute('disabled', 'disabled');
 }
+
 
 const setEventListeners = (formElement, objValidation) => {
   const inputList = Array.from(formElement.querySelectorAll(objValidation.inputSelector));
