@@ -1,3 +1,34 @@
+import Card from "./Card.js"
+import FormValidator from "./FormValidator.js";
+
+// Массив с автоматическими карточками  
+const initialCards = [
+  {
+    name: 'Турция',
+    link: './images/turkey.jpg'
+  },
+  {
+    name: 'Таллин',
+    link: './images/tallin.jpg'
+  },
+  {
+    name: 'Кипр',
+    link: './images/kipr.jpg'
+  },
+  {
+    name: 'Швеция',
+    link: './images/swe.jpg'
+  },
+  {
+    name: 'Испания',
+    link: './images/ispanion.jpg'
+  },
+  {
+    name: 'Карачаево-Черкесская Республика',
+    link: './images/karachaevsk.jpg'
+  }
+];  
+
 const editButton = document.querySelector('.profile__editbutton');
 const closeButtons = document.querySelectorAll('.popup__closebutton');
 const popupProfile = document.querySelector('#popup-profile');
@@ -7,8 +38,6 @@ const formProfile = document.querySelector('#form-profile');
 const nameInput = document.querySelector('.form__field_type_name');
 const professionInput = document.querySelector('.form__field_type_profession');
 // 5 cпринт 
-const cardTemplate = document.querySelector('.cards__template').content
-const cardElement = document.querySelector('.cards__element');
 const cardsContainer = document.querySelector('.cards') // выбираем секцию Cards, где будут вставлять картинки
 const formCard = document.querySelector('#form-cards');
 const popupCards = document.querySelector('#popup-cards');
@@ -18,6 +47,26 @@ const buttonOpenPopup = document.querySelector('.profile__addbutton');
 const popupPhoto = document.querySelector('#popup-image');
 const zoomPhoto = document.querySelector('.popup__image');
 const description = document.querySelector('.popup__description');
+
+
+// validation 
+
+const validationConfig = {
+  formSelector: '.form',
+  inputSelector: '.form__field',
+  submitButtonSelector: '.form__submitbutton',
+  inactiveButtonClass: 'form__submitbutton_inactive', //
+  inputErrorClass: 'form_type-error',
+  errorClass: 'form__field-error_active'
+};
+
+
+const profileFormValidator = new FormValidator(validationConfig, formProfile)
+profileFormValidator.enableValidation();
+
+const cardFormValidator = new FormValidator(validationConfig, formCard)
+cardFormValidator.enableValidation();
+
 
 //Закрытие нажатием кнпоки ESC 
 
@@ -57,6 +106,7 @@ editButton.addEventListener('click', () => {
   openPopup(popupProfile)
   nameInput.value = profileName.textContent; // Забираем данные с сайта
   professionInput.value = profileProfession.textContent 
+  profileFormValidator.resetInpit();
 });
 
 
@@ -78,36 +128,21 @@ formProfile.addEventListener('submit', submitEditProfileForm);
 
 
 buttonOpenPopup.addEventListener('click', () => {
+  cardFormValidator.resetInpit();
+  formCard.reset();
   openPopup(popupCards)
 })
 
 function addCard(card) {
-  const cardItems = cardTemplate.querySelector('.cards__element').cloneNode(true); //клонируем карточку
-  const cardPhoto = cardItems.querySelector('.cards__photo');
-// Передаем значение в карточки
-  cardPhoto.src = card.link;
-  cardPhoto.alt = card.name;
-  cardItems.querySelector('.cards__text').textContent = card.name;
+  const newCard = new Card(card, '.card-template', zoom);
+  return newCard.generateCard();
+}
 
-  // delete Card button
- cardItems.querySelector('.cards__trashbutton').addEventListener('click', function(deleteCard) {
-  deleteCard.target.closest('.cards__element').remove();
- })
-
-//add Like / delete Like 
-cardItems.querySelector('.cards__likebutton').addEventListener('click', function(like) {
-  like.target.classList.toggle('cards__likebutton_active');
-})
-
-//увеличение картинки
-function zoom() {
-  zoomPhoto.src = card.link;
-  zoomPhoto.alt = card.name;
-  description.textContent = card.name;
+function zoom(name, link) {
+  zoomPhoto.src = link;
+  zoomPhoto.alt = name;
+  description.textContent = name;
   openPopup(popupPhoto);
- }
- cardPhoto.addEventListener('click', zoom);
-  return cardItems;
 }
 
 function handleFormCardSubmit(evt) {
@@ -120,8 +155,7 @@ function handleFormCardSubmit(evt) {
   };
 
   cardsContainer.prepend(addCard(newCard)); // Добавляем в контейнер вначале с функцией addCard, параметр новой переменной  
-  closePopup(popupCards); 
-  evt.target.reset(); // сброс значений инпута
+  closePopup(popupCards); // сброс значений инпута
 }
 formCard.addEventListener('submit', handleFormCardSubmit); // Отправка формы карточки
 

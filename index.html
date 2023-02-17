@@ -25,25 +25,7 @@
       </div>
       <button class="profile__addbutton buttonstyle" type="button"></button>
     </section>
-
-
-    <section class="cards" aria-label="Фото-карточки">
-
-      <template class="cards__template">
-        <article class="cards__element">
-          <img src="#" alt="#" class="cards__photo">
-          <button class="cards__trashbutton" type="button"></button>
-          <div class="cards__info">
-            <h2 class="cards__text"></h2>
-            <button class="cards__likebutton" type="button"></button>
-          </div>
-        </article>
-      </template>
-
-
-    </section>
-
-
+    <section class="cards" aria-label="Фото-карточки"></section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
@@ -53,13 +35,15 @@
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form" name="info" id="form-profile" novalidate>
-          <input type="text" class="form__field form__field_type_name" placeholder="Имя" required minlength="2" maxlength="40" id="name-input" name="name">
+        <input type="text" class="form__field form__field_type_name" placeholder="Имя" required minlength="2"
+          maxlength="40" id="name-input" name="name">
 
-          <span class="form__field-error name-input-error"></span>
+        <span class="form__field-error name-input-error"></span>
 
-          <input type="text" class="form__field form__field_type_profession" placeholder="О себе" required minlength="2" maxlength="200" id="prof-input" name="prof">
+        <input type="text" class="form__field form__field_type_profession" placeholder="О себе" required minlength="2"
+          maxlength="200" id="prof-input" name="prof">
 
-          <span class="form__field-error prof-input-error"></span>
+        <span class="form__field-error prof-input-error"></span>
 
         <button type="submit" aria-label="Сохранить и отправить форму"
           class="form__submitbutton buttonstyle">Сохранить</button>
@@ -72,15 +56,15 @@
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
       <form class="form" name="info" id="form-cards" novalidate>
-          <input type="text" class="form__field form__field_type_name" id="card-name" placeholder="Название"
-            value="" required minlength="2" maxlength="30" name="name-card">
+        <input type="text" class="form__field form__field_type_name" id="card-name" placeholder="Название" value=""
+          required minlength="2" maxlength="30" name="name-card">
 
-            <span class="form__field-error card-name-error"></span>
+        <span class="form__field-error card-name-error"></span>
 
-          <input type="url" class="form__field form__field_type_profession" id="card-url" placeholder="Ссылка на картинку" 
+        <input type="url" class="form__field form__field_type_profession" id="card-url" placeholder="Ссылка на картинку"
           value="" required>
 
-          <span class="form__field-error card-url-error"></span>
+        <span class="form__field-error card-url-error"></span>
 
         <button type="submit" aria-label="Сохранить и отправить форму"
           class="form__submitbutton buttonstyle">Сохранить</button>
@@ -95,10 +79,23 @@
       <button type="button" class="popup__closebutton" id="close-photo" aria-label="Закрыть всплывающее окно"></button>
       <p class="popup__description"></p>
     </div>
-    </div>
-  <script src="./scripts/cards.js"></script>
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/validate.js"></script>
+  </div>
+
+  <template class="card-template">
+    <article class="cards__element">
+      <img src="#" alt="#" class="cards__photo">
+      <button class="cards__trashbutton" type="button"></button>
+      <div class="cards__info">
+        <h2 class="cards__text"></h2>
+        <button class="cards__likebutton" type="button"></button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="./scripts/index.js"></script>
+
+
+
 </body>
 
 </html>
