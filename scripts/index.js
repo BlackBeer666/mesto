@@ -1,36 +1,8 @@
 import Card from "./Card.js"
 import FormValidator from "./FormValidator.js";
 
-// Массив с автоматическими карточками  
-const initialCards = [
-  {
-    name: 'Турция',
-    link: './images/turkey.jpg'
-  },
-  {
-    name: 'Таллин',
-    link: './images/tallin.jpg'
-  },
-  {
-    name: 'Кипр',
-    link: './images/kipr.jpg'
-  },
-  {
-    name: 'Швеция',
-    link: './images/swe.jpg'
-  },
-  {
-    name: 'Испания',
-    link: './images/ispanion.jpg'
-  },
-  {
-    name: 'Карачаево-Черкесская Республика',
-    link: './images/karachaevsk.jpg'
-  }
-];  
-
-const editButton = document.querySelector('.profile__editbutton');
-const closeButtons = document.querySelectorAll('.popup__closebutton');
+const buttonEditProfile = document.querySelector('.profile__editbutton');
+const buttonsClose = document.querySelectorAll('.popup__closebutton');
 const popupProfile = document.querySelector('#popup-profile');
 const profileName = document.querySelector('.profile__name'); 
 const profileProfession = document.querySelector('.profile__profession'); 
@@ -102,7 +74,7 @@ function closePopup(popup) {
 }
 
 //Слушатель клика на открытие и взять данные с сайта
-editButton.addEventListener('click', () => {
+buttonEditProfile.addEventListener('click', () => {
   openPopup(popupProfile)
   nameInput.value = profileName.textContent; // Забираем данные с сайта
   professionInput.value = profileProfession.textContent 
@@ -111,7 +83,7 @@ editButton.addEventListener('click', () => {
 
 
 // Универсальный слушатель клика закрытие попапа 
-closeButtons.forEach(btn => {    //forEach перебираем все элементы с кнопкой
+buttonsClose.forEach(btn => {    //forEach перебираем все элементы с кнопкой
   const popup = btn.closest('.popup');  // ко всем родителям .popup используем функцию на закрытие
   btn.addEventListener('click', () => closePopup(popup)); 
 }) 
