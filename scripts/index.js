@@ -78,7 +78,7 @@ buttonEditProfile.addEventListener('click', () => {
   openPopup(popupProfile)
   nameInput.value = profileName.textContent; // Забираем данные с сайта
   professionInput.value = profileProfession.textContent 
-  profileFormValidator.resetInpit();
+  profileFormValidator.resetInput();
 });
 
 
