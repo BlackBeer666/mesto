@@ -100,7 +100,7 @@ formProfile.addEventListener('submit', submitEditProfileForm);
 
 
 buttonOpenPopup.addEventListener('click', () => {
-  cardFormValidator.resetInpit();
+  cardFormValidator.resetInput();
   formCard.reset();
   openPopup(popupCards)
 })

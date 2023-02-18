@@ -8,9 +8,7 @@ class Card {
     this._cardName = this._element.querySelector('.cards__text');
     this._likeCard = this._element.querySelector('.cards__likebutton');
     this._trashCard = this._element.querySelector('.cards__trashbutton');
-    
-    this._zoomCard = zoom;
-    console.log(this._zoomCard);
+     this._zoomCard = zoom;
   }
 
 // Получить шаблон
