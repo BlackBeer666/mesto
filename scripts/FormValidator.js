@@ -9,6 +9,7 @@ class FormValidator {
   enableValidation = () => {
 
     this._setEventListeners();
+    this._toggleButtonState();
   }
 
   _setEventListeners = () => {
